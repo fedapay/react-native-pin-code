@@ -1,5 +1,5 @@
 {
-    "name": "fedapay-rn-pin-code",
+    "name": "fedapay-reactnative-pin",
     "version": "1.2.5",
     "description": "Pin Code component for React Native",
     "scripts": {
