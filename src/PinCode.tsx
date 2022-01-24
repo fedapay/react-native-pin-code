@@ -194,7 +194,7 @@ const PinCode = ({
                     </>
                 }
             </View>
-            <Pin pin={pin} pinLength={curOptions.pinLength || DEFAULT.Options.pinLength} style={styles?.enter?.pinContainer} />
+            <Pin pin={pin} pinLength={curOptions.pinLength || DEFAULT.Options.pinLength} style={styles?.enter?.pinContainer} textStyle={styles?.enter?.pinDotStyle}/>
             <View style={[defaultStyles.buttonContainer, styles?.enter?.buttonContainer]}>
                 <View style={defaultStyles.pinNumberRow}>
                     <PinButton value={'1'} disabled={buttonsDisabled} style={buttonStyle} textStyle={styles?.enter?.buttonText} onPress={onPinButtonPressed} />
@@ -286,22 +286,23 @@ const PinCode = ({
     return <></>;
 }
 
-const Pin = ({ pin, pinLength, style }: {
+const Pin = ({ pin, pinLength, style, textStyle }: {
     pin: string;
     pinLength: number;
-    style?: ViewStyle | ViewStyle[]
+    style?: ViewStyle | ViewStyle[];
+    textStyle?: ViewStyle | ViewStyle[];
 }) => {
 
     const items: JSX.Element[] = [];
     for (let i = 1; i <= pinLength; i++) {
-        items.push(<Text key={'pin_' + i} style={{
+        items.push(<Text key={'pin_' + i} style={[{
             width: pin.length >= i ? 12 : 6,
             height: pin.length >= i ? 12 : 6,
             borderRadius: pin.length >= i ? 6 : 3,
             backgroundColor: 'white',
             overflow: 'hidden',
             marginHorizontal: 10
-        }} />);
+        }, textStyle]} />);
     }
 
     return <View style={[defaultStyles.pinContainer, style]}>

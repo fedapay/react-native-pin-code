@@ -13,6 +13,7 @@ export namespace PinCodeT {
                 title?: TextStyle | TextStyle[];
                 subTitle?: TextStyle | TextStyle[];
                 pinContainer?: ViewStyle | ViewStyle[];
+                pinDotStyle?: ViewStyle | ViewStyle[];
                 buttonContainer?: ViewStyle | ViewStyle[];
                 buttons?: ViewStyle | ViewStyle[];
                 buttonText?: TextStyle | TextStyle[];
