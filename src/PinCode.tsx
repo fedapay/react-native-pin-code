@@ -19,6 +19,7 @@ const PinCode = ({
     onResetSuccess,
     onModeChanged,
     checkPin,
+    pinItem,
 }: PinCodeT.PinCodeT) => {
     const [pin, setPin] = useState('');
     const [lastPin, setLastPin] = useState('');
@@ -194,7 +195,7 @@ const PinCode = ({
                     </>
                 }
             </View>
-            <Pin pin={pin} pinLength={curOptions.pinLength || DEFAULT.Options.pinLength} style={styles?.enter?.pinContainer} textStyle={styles?.enter?.pinDotStyle}/>
+            <Pin pin={pin} pinLength={curOptions.pinLength || DEFAULT.Options.pinLength} style={styles?.enter?.pinContainer} textStyle={styles?.enter?.pinDotStyle} pinItem={pinItem}/>
             <View style={[defaultStyles.buttonContainer, styles?.enter?.buttonContainer]}>
                 <View style={defaultStyles.pinNumberRow}>
                     <PinButton value={'1'} disabled={buttonsDisabled} style={buttonStyle} textStyle={styles?.enter?.buttonText} onPress={onPinButtonPressed} />

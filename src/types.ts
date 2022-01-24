@@ -41,6 +41,7 @@ export namespace PinCodeT {
         onResetSuccess: () => void;
         onModeChanged?: (lastMode: Modes, newMode?: Modes) => void;
         checkPin?: (pin: string) => Promise<boolean>;
+        pinItem?: (pin: string, i: number) => JSX.Element;
     }
 
     export enum Modes {
