@@ -20,6 +20,7 @@ const PinCode = ({
     onModeChanged,
     checkPin,
     pinItem,
+    customFooter
 }: PinCodeT.PinCodeT) => {
     const [pin, setPin] = useState('');
     const [lastPin, setLastPin] = useState('');
@@ -237,6 +238,7 @@ const PinCode = ({
                     </TouchableOpacity>
                 }
             </View>
+            { customFooter && <View>{customFooter}</View>}
         </View >
     } else if (curMode == PinCodeT.Modes.Locked) {
         return <View style={[defaultStyles.mainContainer, styles?.main]}>
