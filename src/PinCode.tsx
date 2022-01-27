@@ -238,7 +238,7 @@ const PinCode = ({
                     </TouchableOpacity>
                 }
             </View>
-            { customFooter && <View>{customFooter}</View>}
+            { customFooter && <View>{customFooter()}</View>}
         </View >
     } else if (curMode == PinCodeT.Modes.Locked) {
         return <View style={[defaultStyles.mainContainer, styles?.main]}>
