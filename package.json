@@ -1,6 +1,6 @@
 {
     "name": "fedapay-reactnative-pin",
-    "version": "1.2.10",
+    "version": "1.2.11",
     "description": "Pin Code component for React Native",
     "scripts": {
         "build": "tsc --project ./tsconfig.json"
