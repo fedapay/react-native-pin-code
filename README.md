@@ -15,10 +15,10 @@ NOTE: The component doesn't block the app for you. It just renders the Enter PIN
 import { PinCode, PinCodeT } from '@anhnch/react-native-pincode';
 const Screen = () => {
   return <View>
-    <PinCode mode={PinCodeT.Modes.Enter} visible={true} 
-      styles={{ 
+    <PinCode mode={PinCodeT.Modes.Enter} visible={true}
+      styles={{
         main: { position: 'absolute', left: 0, right; 0, top: 0, bottom: 0, zIndex: 99 }
-      }} 
+      }}
     />
   </View>
 }
@@ -58,7 +58,7 @@ const customTexts = {
     }
 };
 
-const customStyles = { 
+const customStyles = {
   main: { position: 'absolute', left: 0, right; 0, top: 0, bottom: 0, zIndex: 99 },
   enter: {
     titleContainer: { borderWidth: 1 },
@@ -98,11 +98,11 @@ const App = () => {
   return <View>
     <Button onPress={() => setMode(PinCodeT.Modes.Set)} title="Set new PIN" />
     <Button onPress={() => setMode(PinCodeT.Modes.Enter)} title="Enter PIN" />
-    <Button onPress={() => clearPIN().then(() => 
+    <Button onPress={() => clearPIN().then(() =>
         console.log('PIN is cleared')
       )} title="Remove PIN" />
-    
-    <PinCode mode={mode} visible={visible} 
+
+    <PinCode mode={mode} visible={visible}
       onSetCancel={() => setVisible(false)}
       onSetSuccess={(newPin: string) => console.log('A new PIN has been set: ' + newPin)}
       onEnterSuccess={(pin: string) => console.log('User has entered PIN: ' + pin)}
@@ -157,7 +157,7 @@ const App = () => {
 ## Text Options
 The text options are grouped by screen for the ease to find. You can pass the textOptions in this syntax
 ```JSX
-<Pincode mode='enter' 
+<Pincode mode='enter'
   textOptions={{
     enter: {
       title: 'custom enter title',
@@ -226,7 +226,7 @@ The text options are grouped by screen for the ease to find. You can pass the te
 
 
 ## Styles options
-The style is organized like textOptions for the ease of finding. Note that 
+The style is organized like textOptions for the ease of finding. Note that
 
 #### Enter screen styles
 | Name            | Description                                | Required | Default |
@@ -269,11 +269,11 @@ The style is organized like textOptions for the ease of finding. Note that
 
 ## Storage
 
-To make it simple and least dependencies, I use the AsyncStorage to save pin. But you can use the callbacks to implement your own way.
+To make it simple and least dependencies, I use the SecureStore to save pin. But you can use the callbacks to implement your own way.
 
 ```JSX
 ...
-  <PinCode mode={mode} visible={visible} 
+  <PinCode mode={mode} visible={visible}
     onSetSuccess={(newPin: string) => {
         Keychain.setGenericPassword('pin', newPin);
     })}

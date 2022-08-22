@@ -1,14 +1,14 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import * as SecureStore from 'expo-secure-store'
 import PinCode from "./PinCode";
 import { PinCodeT, PIN_KEY } from "./types";
 
 async function hasSetPIN(): Promise<boolean> {
-    const pin = await AsyncStorage.getItem(PIN_KEY);
+    const pin = await SecureStore.getItemAsync(PIN_KEY);
     return (pin ? true : false)
 }
 
 async function clearPIN() {
-    await AsyncStorage.removeItem(PIN_KEY);
+    await SecureStore.deleteItemAsync(PIN_KEY);
 }
 
 export { PinCode, PinCodeT, hasSetPIN, clearPIN };

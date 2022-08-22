@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Vibration, Text, TouchableOpacity, Platform, ViewStyle, ViewComponent } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import * as SecureStore from 'expo-secure-store'
 
 import { PinCodeT, DEFAULT, PIN_KEY } from './types';
 import PinButton from './PinButton';
@@ -153,7 +153,7 @@ const PinCode = ({
     }
 
     async function onDeletePIN() {
-        await AsyncStorage.removeItem(PIN_KEY);
+        await SecureStore.deleteItemAsync(PIN_KEY);
         onResetSuccess();
         switchMode(PinCodeT.Modes.Enter);
     }
@@ -162,13 +162,13 @@ const PinCode = ({
         if (checkPin) {
             return await checkPin(newPin);
         } else {
-            const savedPin = await AsyncStorage.getItem(PIN_KEY);
+            const savedPin = await SecureStore.getItemAsync(PIN_KEY);
             return (newPin == savedPin);
         }
     }
 
     async function savePin(newPin: string) {
-        await AsyncStorage.setItem(PIN_KEY, newPin);
+        await SecureStore.setItemAsync(PIN_KEY, newPin);
         return;
     }
 
